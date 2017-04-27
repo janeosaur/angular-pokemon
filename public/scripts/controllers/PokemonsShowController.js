@@ -6,9 +6,9 @@ angular
   .controller('PokemonsShowController', PokemonsShowController);
 
 
-PokemonsShowController.$inject = ['$http', '$routeParams'];
+PokemonsShowController.$inject = ['$http', '$routeParams', '$location'];
 
-function PokemonsShowController($http, $routeParams) {
+function PokemonsShowController($http, $routeParams, $location) {
   var vm = this;
 
   $http({
@@ -27,8 +27,9 @@ function PokemonsShowController($http, $routeParams) {
       url: 'https://super-crud.herokuapp.com/pokemon/' + $routeParams.id
     }).then(function successCallback(response) {
       // var index = vm.pokemon.indexOf(pokemon);
-      // vm.pokemon.splice(index, 1); // are these not needed?
+      // vm.pokemon.splice(index, 1); // are these not needed bc one pokemon is already singled out?
       $location.path('/'); // location is undefined
+      console.log('success deleting ', response)
     }, function errorCallback(response) {
       console.log('error deleting ', response);
     });
