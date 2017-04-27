@@ -20,4 +20,18 @@ function PokemonsShowController($http, $routeParams) {
   }, function errorCallback(response) {
     console.log('get error ', response)
   });
+
+  vm.deletePokemon = function (pokemon) {
+    $http({
+      method: 'delete',
+      url: 'https://super-crud.herokuapp.com/pokemon/' + $routeParams.id
+    }).then(function successCallback(response) {
+      // var index = vm.pokemon.indexOf(pokemon);
+      // vm.pokemon.splice(index, 1); // are these not needed?
+      $location.path('/'); // location is undefined
+    }, function errorCallback(response) {
+      console.log('error deleting ', response);
+    });
+  }
+
 }
