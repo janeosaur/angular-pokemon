@@ -1,0 +1,17 @@
+<h2>Our Pokemons</h2>
+
+<div ng-repeat="pokemon in PokemonsIndexCtrl.pokemons">
+	<hr>
+	<div class="row">
+
+		<div class="col s4">
+			<img ng-src="{{pokemon.image}}" class="img-responsive">
+		</div>
+		<div class="col s8"> {{pokemon._id}}
+			<h5><a ng-href="/pokemons/{{pokemon._id}}">{{pokemon.name}}</a></h5>
+			<br>
+			<p class="small">Pokedex Number {{pokemon.pokedex}}</p>
+			<p class="small">Evolves from {{pokemon.evolves_from}}</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pokeApp">
+  <head>
+    <meta charset="utf-8">
+    <title>catch em all</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/public/styles/styles.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="/public/scripts/app.js"></script>
+    <script src="/public/scripts/controllers/PokemonsIndexController.js"></script>
+    <script src="/public/scripts/controllers/PokemonsShowController.js"></script>
+
+  </head>
+  <body>
+
+    <div class='header-layout'>
+      <h1> Catch 'em all! </h1>
+    </div>
+      <div class = "container">
+          <div class="col m6 offset-m3">
+            <div ng-view> </div>
+          </div>
+      </div>
+  </body>
+</html>
