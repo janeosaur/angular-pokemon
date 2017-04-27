@@ -3,16 +3,26 @@
 	<div class="row">
 
 		<div class="col m5">
-			<img ng-src="{{PokemonsShowCtrl.pokemon.image}}" class="img-responsive poke">
-		</div>
+			<img ng-hide="editing" ng-src="{{PokemonsShowCtrl.pokemon.image}}" class="img-responsive poke">
+      <input ng-show="editing" type="text"> {{PokemonsShowCtrl.pokemon.image}}
+    </div>
 		<div class="col m7">
 			<br>
-			<p class="small">Pokedex Number {{PokemonsShowCtrl.pokemon.pokedex}}</p>
-			<p class="small">Evolves from {{PokemonsShowCtrl.pokemon.evolves_from}}</p>
+			<p class="small">Pokedex Number
+        <span ng-hide="editing">{{PokemonsShowCtrl.pokemon.pokedex}}</span>
+        <input ng-show="editing" ng-model="PokemonsShowCtrl.pokemon.pokedex" type="text">
+      </p>
+			<p class="small">Evolves from
+        <span ng-hide="editing">{{PokemonsShowCtrl.pokemon.evolves_from}}</span>
+        <input ng-show="editing" ng-model="PokemonsShowCtrl.pokemon.evolves_from" type="text">
+      </p>
       <p> ID number: {{PokemonsShowCtrl.pokemon._id}} </p>
 		</div>
 
-    <button type="button" class="btn btn-success" ng-click="PokemonsShowCtrl.deletePokemon(pokemon)"> Delete </button>
+    <button ng-click="PokemonsShowCtrl.deletePokemon(pokemon)"> Delete </button>
+    <button ng-hide="editing" ng-click="editing = true">Edit Album</button>
+    <!-- ancel button ?-->
+    <button ng-show="editing" ng-click="PokemonsShowCtrl.editPokemon(pokemon); editing = false">Save Changes</button>
 
 	</div>
 </div>
