@@ -1,0 +1,24 @@
+h1 {
+  text-align: center;
+  font-size: 100px;
+  font-family: monospace;
+  color: blue
+}
+
+h2 {
+  text-align: center;
+  color: red
+}
+
+h5 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 20px;
+}
+/*applies to pokemon images in index view*/
+img.poke {
+  max-height: 200px;
+  max-width: 200px;
+}

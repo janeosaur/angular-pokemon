@@ -17,7 +17,4 @@ function PokemonsIndexController($http) {
   }, function errorCallback(response) {
     console.log('get error ', response)
   });
-
-
-
 }
