@@ -15,7 +15,7 @@ function PokemonsShowController($http, $routeParams, $location) {
     method: 'get',
     url: 'https://super-crud.herokuapp.com/pokemon/' + $routeParams.id
   }).then(function successCallback(response) {
-    console.log('get success ', response.data);
+    // console.log('get success ', response.data);
     vm.pokemon = response.data;
   }, function errorCallback(response) {
     console.log('get error ', response)
@@ -28,7 +28,7 @@ function PokemonsShowController($http, $routeParams, $location) {
     }).then(function successCallback(response) {
       // var index = vm.pokemon.indexOf(pokemon);
       // vm.pokemon.splice(index, 1); // are these not needed bc one pokemon is already singled out?
-      $location.path('/'); 
+      $location.path('/');
       console.log('success deleting ', response)
     }, function errorCallback(response) {
       console.log('error deleting ', response);
@@ -40,12 +40,14 @@ function PokemonsShowController($http, $routeParams, $location) {
       method: 'put',
       url: 'https://super-crud.herokuapp.com/pokemon/' + pokemon._id,
       data: {
-        pokedex: pokemon.pokedex,
-        evolves_from: pokemon.evolves_from,
-        image: pokemon.image
+        name : pokemon.name,
+        pokedex : pokemon.pokedex,
+        image : pokemon.image,
+        evolves_from : pokemon.evolves_from
       }
     }).then(function successCallback(response) {
-      console.log('success editing', response)
+      vm.pokemon = response.data;
+      console.log('success editing', vm.pokemon)
     }, function errorCallback(error) {
       console.log('error editing ', error);
     });
