@@ -1,18 +1,20 @@
 <h2> Our Pokemon Deck</h2>
 
-<div ng-repeat="pokemon in PokemonsIndexCtrl.pokemons">
-	<hr>
-	<div class="row">
+<label> Search: <input ng-model="search.$"></label>
 
-		<div class="col m5">
-			<img ng-src="{{pokemon.image}}" class="img-responsive poke">
-		</div>
-		<div class="col m7">
-			<h5><a ng-href="/pokemons/{{pokemon._id}}">{{pokemon.name}}</a></h5>
-			<br>
-			<p class="small">Pokedex Number {{pokemon.pokedex}}</p>
-			<p class="small">Evolves from {{pokemon.evolves_from}}</p>
-      <p> ID number: {{pokemon._id}} </p>
+
+	<div ng-repeat="pokemon in PokemonsIndexCtrl.pokemons | filter:search">
+		<hr>
+		<div class="row">
+			<div class="col m5">
+				<img ng-src="{{pokemon.image}}" class="img-responsive poke">
+			</div>
+			<div class="col m7">
+				<h5><a ng-href="/pokemons/{{pokemon._id}}">{{pokemon.name}}</a></h5>
+				<br>
+				<p class="small">Pokedex Number {{pokemon.pokedex}}</p>
+				<p class="small">Evolves from {{pokemon.evolves_from}}</p>
+	      <p> ID number: {{pokemon._id}} </p>
+			</div>
 		</div>
 	</div>
-</div>
